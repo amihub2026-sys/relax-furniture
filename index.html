@@ -5,12 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Relax Furniture</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<video class="bg-video" autoplay muted loop playsinline>
-<source src="assets/WhatsApp Video 2026-07-21 at 4.21.11 PM.mp4" type="video/mp4">
+<video class="bg-video"  id="bgVideo" autoplay muted loop playsinline>
+<source src="assets/bg video.mp4" type="video/mp4">
 </video>
+<button class="sound-btn" onclick="toggleSound()">
+    <i class="fa fa-volume-up"></i>
+</button>
 <div class="overlay"></div>
 
 <header>
@@ -1372,6 +1376,24 @@ document.querySelectorAll("#mobileNav a").forEach(link => {
     });
 
 });
+function toggleSound(){
+
+    const video = document.getElementById("bgVideo");
+    const icon = document.querySelector(".sound-btn i");
+
+    video.muted = !video.muted;
+
+    if(video.muted){
+
+        icon.className="fa fa-volume-xmark";
+
+    }else{
+
+        icon.className="fa fa-volume-up";
+
+    }
+
+}
 </script>
 
 

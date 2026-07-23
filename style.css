@@ -3898,3 +3898,46 @@ width:130px;
 
 
 }
+.sound-btn{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:120px;
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#D4AF37;
+
+    color:#111;
+
+    font-size:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:9999;
+
+    box-shadow:
+    0 0 15px rgba(212,175,55,.6);
+
+}
+
+
+.sound-btn:hover{
+
+    transform:scale(1.1);
+
+}
