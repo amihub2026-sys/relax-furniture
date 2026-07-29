@@ -5,12 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Relax Furniture</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<video class="bg-video" autoplay muted loop playsinline>
-<source src="assets/WhatsApp Video 2026-07-21 at 4.21.11 PM.mp4" type="video/mp4">
+<video class="bg-video"  id="bgVideo" autoplay muted loop playsinline>
+<source src="assets/bg2.mp4" type="video/mp4">
 </video>
+<button class="sound-btn" onclick="toggleSound()">
+    <i class="fa fa-volume-up"></i>
+</button>
 <div class="overlay"></div>
 
 <header>
@@ -110,7 +114,7 @@
     <div class="about-container">
 
 
-        <!-- IMAGE GALLERY -->
+        
 
         <div class="about-images">
 
@@ -378,7 +382,7 @@ modern designs, superior materials, and timeless elegance.
 
 <div class="product-card">
 
-<img src="assets/product1.jpg">
+<img src="assets/g18.png">
 
 <div class="product-content">
 
@@ -388,7 +392,11 @@ modern designs, superior materials, and timeless elegance.
 Elegant sofas designed for comfort and premium living spaces.
 </p>
 
-<button>Order Now</button>
+   <button
+    type="button"
+    onclick="openProduct('sofa1')">
+    Order Now
+</button>
 
 </div>
 
@@ -400,7 +408,7 @@ Elegant sofas designed for comfort and premium living spaces.
 
 <div class="product-card">
 
-<img src="assets/product2.jpg">
+<img src="assets/g20.png">
 
 <div class="product-content">
 
@@ -409,8 +417,11 @@ Elegant sofas designed for comfort and premium living spaces.
 <p>
 Modern beds and bedroom furniture with luxury finishes.
 </p>
-
-<button>Order Now</button>
+<button
+    type="button"
+    onclick="openProduct('bedroom1')">
+    Order Now
+</button>
 
 </div>
 
@@ -422,7 +433,7 @@ Modern beds and bedroom furniture with luxury finishes.
 
 <div class="product-card">
 
-<img src="assets/product3.jpg">
+<img src="assets/inter.png">
 
 <div class="product-content">
 
@@ -432,7 +443,12 @@ Modern beds and bedroom furniture with luxury finishes.
 Complete living room solutions with stylish designs.
 </p>
 
-<button>Order Now</button>
+ <button
+                    type="button"
+                    onclick="openProduct('living-interior')">
+                    Order Now
+                </button>
+
 
 </div>
 
@@ -445,7 +461,7 @@ Complete living room solutions with stylish designs.
 
 <div class="product-card">
 
-<img src="assets/product4.jpg">
+<img src="assets/cus.png">
 
 <div class="product-content">
 
@@ -455,7 +471,11 @@ Complete living room solutions with stylish designs.
 Handcrafted furniture designed according to your needs.
 </p>
 
-<button>Order Now</button>
+     <button
+                    type="button"
+                    onclick="openProduct('custom-furniture')">
+                    Order Now
+                </button>
 
 </div>
 
@@ -467,7 +487,7 @@ Handcrafted furniture designed according to your needs.
 
 <div class="product-card">
 
-<img src="assets/product5.jpg">
+<img src="assets/din.png">
 
 <div class="product-content">
 
@@ -477,8 +497,11 @@ Handcrafted furniture designed according to your needs.
 Beautiful dining collections for elegant family spaces.
 </p>
 
-<button>Order Now</button>
-
+<button
+    type="button"
+    onclick="openProduct('dining1')">
+    Order Now
+</button>
 </div>
 
 </div>
@@ -500,7 +523,12 @@ Beautiful dining collections for elegant family spaces.
 Premium office desks and chairs for productive spaces.
 </p>
 
-<button>Order Now</button>
+            <button
+                    type="button"
+                    onclick="openProduct('office-furniture')">
+                    Order Now
+                </button>
+
 
 </div>
 
@@ -522,7 +550,11 @@ Premium office desks and chairs for productive spaces.
 Complete interior solutions with modern aesthetics.
 </p>
 
-<button>Order Now</button>
+ <button
+                    type="button"
+                    onclick="openProduct('home-interior')">
+                    Order Now
+                </button>
 
 </div>
 
@@ -544,8 +576,11 @@ Complete interior solutions with modern aesthetics.
 Unique chairs combining comfort and luxury style.
 </p>
 
-<button>Order Now</button>
-
+<button
+    type="button"
+    onclick="openProduct('chair1')">
+    Order Now
+</button>
 </div>
 
 </div>
@@ -794,7 +829,7 @@ and beautifully designed spaces crafted by Futuriture.
 
 
 <div class="gallery-card">
-<img src="assets/g3.jpg">
+<img src="assets/g19.png">
 </div>
 
 
@@ -809,12 +844,12 @@ and beautifully designed spaces crafted by Futuriture.
 
 
 <div class="gallery-card">
-<img src="assets/g7.jpg">
+<img src="assets/g18.png">
 </div>
 
 
 <div class="gallery-card">
-<img src="assets/g8.jpg">
+<img src="assets/g20.png">
 </div>
 
 
@@ -867,6 +902,43 @@ and beautifully designed spaces crafted by Futuriture.
 
 
 </section>
+<div class="gallery-modal" id="galleryModal">
+
+    <button
+        type="button"
+        class="gallery-modal-close"
+        id="galleryModalClose"
+        aria-label="Close gallery image">
+        &times;
+    </button>
+
+    <button
+        type="button"
+        class="gallery-modal-arrow gallery-modal-prev"
+        id="galleryModalPrev"
+        aria-label="Previous image">
+        &#10094;
+    </button>
+
+    <div class="gallery-modal-content">
+        <img
+            src=""
+            id="galleryModalImage"
+            class="gallery-modal-image"
+            alt="Full screen gallery image">
+
+        <div class="gallery-modal-count" id="galleryModalCount"></div>
+    </div>
+
+    <button
+        type="button"
+        class="gallery-modal-arrow gallery-modal-next"
+        id="galleryModalNext"
+        aria-label="Next image">
+        &#10095;
+    </button>
+
+</div>
 
 <section class="glass reviews">
 
@@ -1372,8 +1444,160 @@ document.querySelectorAll("#mobileNav a").forEach(link => {
     });
 
 });
+function toggleSound(){
+
+    const video = document.getElementById("bgVideo");
+    const icon = document.querySelector(".sound-btn i");
+
+    video.muted = !video.muted;
+
+    if(video.muted){
+
+        icon.className="fa fa-volume-xmark";
+
+    }else{
+
+        icon.className="fa fa-volume-up";
+
+    }
+
+}
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const galleryImages = Array.from(
+        document.querySelectorAll(".gallery-card img")
+    );
+
+    const galleryModal = document.getElementById("galleryModal");
+    const galleryModalImage = document.getElementById("galleryModalImage");
+    const galleryModalClose = document.getElementById("galleryModalClose");
+    const galleryModalPrev = document.getElementById("galleryModalPrev");
+    const galleryModalNext = document.getElementById("galleryModalNext");
+    const galleryModalCount = document.getElementById("galleryModalCount");
+
+    let currentImageIndex = 0;
 
 
+    function updateModalImage() {
 
+        const selectedImage = galleryImages[currentImageIndex];
+
+        galleryModalImage.src = selectedImage.src;
+        galleryModalImage.alt =
+            selectedImage.alt || "Futuriture gallery image";
+
+        galleryModalCount.textContent =
+            `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+
+
+    function openGalleryModal(index) {
+
+        currentImageIndex = index;
+
+        updateModalImage();
+
+        galleryModal.classList.add("active");
+        document.body.classList.add("gallery-modal-open");
+    }
+
+
+    function closeGalleryModal() {
+
+        galleryModal.classList.remove("active");
+        document.body.classList.remove("gallery-modal-open");
+
+        setTimeout(function () {
+            galleryModalImage.src = "";
+        }, 350);
+    }
+
+
+    function showNextImage() {
+
+        currentImageIndex++;
+
+        if (currentImageIndex >= galleryImages.length) {
+            currentImageIndex = 0;
+        }
+
+        updateModalImage();
+    }
+
+
+    function showPreviousImage() {
+
+        currentImageIndex--;
+
+        if (currentImageIndex < 0) {
+            currentImageIndex = galleryImages.length - 1;
+        }
+
+        updateModalImage();
+    }
+
+
+    galleryImages.forEach(function (image, index) {
+
+        image.addEventListener("click", function () {
+            openGalleryModal(index);
+        });
+
+    });
+
+
+    galleryModalClose.addEventListener("click", closeGalleryModal);
+    galleryModalNext.addEventListener("click", showNextImage);
+    galleryModalPrev.addEventListener("click", showPreviousImage);
+
+
+    /* Close when clicking outside the image */
+
+    galleryModal.addEventListener("click", function (event) {
+
+        if (
+            event.target === galleryModal ||
+            event.target === galleryModal.querySelector(
+                ".gallery-modal-content"
+            )
+        ) {
+            closeGalleryModal();
+        }
+
+    });
+
+
+    /* Keyboard controls */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (!galleryModal.classList.contains("active")) {
+            return;
+        }
+
+        if (event.key === "Escape") {
+            closeGalleryModal();
+        }
+
+        if (event.key === "ArrowRight") {
+            showNextImage();
+        }
+
+        if (event.key === "ArrowLeft") {
+            showPreviousImage();
+        }
+
+    });
+
+});
+</script>
+<script>
+function openProduct(productId) {
+    window.location.href =
+        "product-details.html?product=" +
+        encodeURIComponent(productId);
+}
+</script>
 </html>

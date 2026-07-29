@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details | Futuriture</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <main class="product-details-page">
+
+        <a href="index.html#product" class="back-button">
+            ← Back to Products
+        </a>
+
+
+        <!-- MAIN PRODUCT DETAILS -->
+
+
+
+        <!-- AMAZON STYLE PRODUCT CARDS -->
+
+        <section
+            class="amazon-products-section"
+            id="amazonProductsSection">
+
+            <div class="amazon-section-heading">
+
+                <h2>Customers who viewed this item also viewed</h2>
+
+                <a href="index.html#product">
+                    See all products
+                </a>
+
+            </div>
+
+            <div
+                class="amazon-products-grid"
+                id="amazonProductsGrid">
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCT NOT FOUND -->
+
+        <section
+            class="product-not-found"
+            id="productNotFound">
+
+            <h2>Product Not Found</h2>
+
+            <p>
+                The requested product could not be found.
+            </p>
+
+            <a href="index.html#product" class="back-button">
+                View All Products
+            </a>
+
+        </section>
+
+    </main>
+
+
+<script>
+
+/* =====================================================
+   PRODUCT DATA
+===================================================== */
+
+const products = [
+
+    /* =========================
+       SOFA PRODUCTS
+    ========================= */
+
+    {
+        id: "sofa1",
+        category: "sofa",
+        categoryName: "Sofa",
+        title: "Luxury Three Seater Sofa",
+        image: "assets/sofa1.png",
+        rating: "★★★★★",
+        reviewCount: 48,
+        price: "Contact for Price",
+        description:
+            "Premium three-seater sofa designed for modern living rooms."
+    },
+
+    {
+        id: "sofa2",
+        category: "sofa",
+        categoryName: "Sofa",
+        title: "Modern L Shape Sofa",
+        image: "assets/sofa2.png",
+        rating: "★★★★☆",
+        reviewCount: 36,
+        price: "Contact for Price",
+        description:
+            "Spacious L-shape sofa with premium cushioning and modern design."
+    },
+
+    {
+        id: "sofa3",
+        category: "sofa",
+        categoryName: "Sofa",
+        title: "Premium Recliner Sofa",
+        image: "assets/sofa3.png",
+        rating: "★★★★★",
+        reviewCount: 29,
+        price: "Contact for Price",
+        description:
+            "Comfortable recliner sofa created for relaxation and luxury."
+    },
+
+    {
+        id: "sofa4",
+        category: "sofa",
+        categoryName: "Sofa",
+        title: "Luxury Wooden Sofa",
+        image: "assets/sofa4.png",
+        rating: "★★★★☆",
+        reviewCount: 21,
+        price: "Contact for Price",
+        description:
+            "Elegant wooden sofa suitable for traditional and premium interiors."
+    },
+
+
+    /* =========================
+       BEDROOM PRODUCTS
+    ========================= */
+
+    {
+        id: "bedroom1",
+        category: "bedroom",
+        categoryName: "Bedroom",
+        title: "Luxury King Size Bed",
+        image: "assets/bed1.png",
+        rating: "★★★★★",
+        reviewCount: 39,
+        price: "Contact for Price",
+        description:
+            "Luxury king-size bed with premium finish and strong construction."
+    },
+
+    {
+        id: "bedroom2",
+        category: "bedroom",
+        categoryName: "Bedroom",
+        title: "Modern Storage Bed",
+        image: "assets/bed2.png",
+        rating: "★★★★☆",
+        reviewCount: 30,
+        price: "Contact for Price",
+        description:
+            "Modern bed with spacious storage and elegant finishing."
+    },
+
+    {
+        id: "bedroom3",
+        category: "bedroom",
+        categoryName: "Bedroom",
+        title: "Designer Bedroom Set",
+        image: "assets/bed3.png",
+        rating: "★★★★★",
+        reviewCount: 27,
+        price: "Contact for Price",
+        description:
+            "Complete designer bedroom set for modern luxury homes."
+    },
+
+    {
+        id: "bedroom4",
+        category: "bedroom",
+        categoryName: "Bedroom",
+        title: "Premium Wooden Cot",
+        image: "assets/bedroom4.png",
+        rating: "★★★★☆",
+        reviewCount: 19,
+        price: "Contact for Price",
+        description:
+            "Premium wooden cot with durable structure and stylish design."
+    },
+
+
+    /* =========================
+       DINING PRODUCTS
+    ========================= */
+
+    {
+        id: "dining1",
+        category: "dining-table",
+        categoryName: "Dining",
+        title: "Six Seater Dining Table",
+        image: "assets/dining1.png",
+        rating: "★★★★★",
+        reviewCount: 35,
+        price: "Contact for Price",
+        description:
+            "Elegant six-seater dining table for premium family dining."
+    },
+
+    {
+        id: "dining2",
+        category: "dining-table",
+        categoryName: "Dining",
+        title: "Four Seater Dining Set",
+        image: "assets/dining2.png",
+        rating: "★★★★☆",
+        reviewCount: 25,
+        price: "Contact for Price",
+        description:
+            "Compact four-seater dining set suitable for modern homes."
+    },
+
+    {
+        id: "dining3",
+        category: "dining-table",
+        categoryName: "Dining",
+        title: "Marble Top Dining Table",
+        image: "assets/dining3.png",
+        rating: "★★★★★",
+        reviewCount: 31,
+        price: "Contact for Price",
+        description:
+            "Luxury marble-top dining table with stylish matching chairs."
+    },
+
+    {
+        id: "dining4",
+        category: "dining-table",
+        categoryName: "Dining",
+        title: "Premium Wooden Dining Set",
+        image: "assets/dining4.png",
+        rating: "★★★★☆",
+        reviewCount: 22,
+        price: "Contact for Price",
+        description:
+            "Premium wooden dining collection with elegant finishing."
+    },
+
+
+    /* =========================
+       CHAIR PRODUCTS
+    ========================= */
+
+    {
+        id: "chair1",
+        category: "chair",
+        categoryName: "Chair",
+        title: "Designer Lounge Chair",
+        image: "assets/chair1.png",
+        rating: "★★★★★",
+        reviewCount: 28,
+        price: "Contact for Price",
+        description:
+            "Stylish lounge chair with comfortable premium cushioning."
+    },
+
+    {
+        id: "chair2",
+        category: "chair",
+        categoryName: "Chair",
+        title: "Modern Accent Chair",
+        image: "assets/chair2.png",
+        rating: "★★★★☆",
+        reviewCount: 20,
+        price: "Contact for Price",
+        description:
+            "Modern accent chair designed for living rooms and bedrooms."
+    },
+
+    {
+        id: "chair3",
+        category: "chair",
+        categoryName: "Chair",
+        title: "Luxury Wooden Chair",
+        image: "assets/chair3.png",
+        rating: "★★★★★",
+        reviewCount: 24,
+        price: "Contact for Price",
+        description:
+            "Luxury wooden chair with premium design and durable construction."
+    },
+
+    {
+        id: "chair4",
+        category: "chair",
+        categoryName: "Chair",
+        title: "Premium Office Chair",
+        image: "assets/chair4.png",
+        rating: "★★★★☆",
+        reviewCount: 33,
+        price: "Contact for Price",
+        description:
+            "Comfortable office chair designed for productive workspaces."
+    }
+
+];
+
+
+/* =====================================================
+   HTML ELEMENTS
+===================================================== */
+
+const amazonProductsSection =
+    document.getElementById("amazonProductsSection");
+
+const amazonProductsGrid =
+    document.getElementById("amazonProductsGrid");
+
+const productNotFound =
+    document.getElementById("productNotFound");
+
+
+/* =====================================================
+   GET PRODUCT FROM URL
+===================================================== */
+
+const parameters =
+    new URLSearchParams(window.location.search);
+
+const productKey =
+    parameters.get("product");
+
+
+/* =====================================================
+   FIND SELECTED PRODUCT
+===================================================== */
+
+const selectedProduct =
+    products.find(function (product) {
+
+        return product.id === productKey;
+
+    });
+
+
+/* =====================================================
+   PRODUCT FOUND
+===================================================== */
+
+if (selectedProduct) {
+
+    if (amazonProductsSection) {
+        amazonProductsSection.style.display = "block";
+    }
+
+    if (productNotFound) {
+        productNotFound.style.display = "none";
+    }
+
+    document.title =
+        selectedProduct.title + " | Futuriture";
+
+
+    /* CLEAR OLD CONTENT */
+
+    if (amazonProductsGrid) {
+        amazonProductsGrid.innerHTML = "";
+    }
+
+
+    /* =================================================
+       SHOW SELECTED PRODUCT
+    ================================================= */
+
+    const selectedWhatsappMessage =
+        "Hello Futuriture, I am interested in " +
+        selectedProduct.title +
+        ". Please share more details.";
+
+    const selectedWhatsappLink =
+        "https://wa.me/919876543210?text=" +
+        encodeURIComponent(selectedWhatsappMessage);
+
+
+    const selectedCard =
+        document.createElement("article");
+
+    selectedCard.className =
+        "amazon-product-card selected-product-card";
+
+    selectedCard.innerHTML = `
+
+        <div class="amazon-product-image">
+
+            <img
+                src="${selectedProduct.image}"
+                alt="${selectedProduct.title}">
+
+        </div>
+
+        <div class="amazon-product-body">
+
+            <span class="amazon-category">
+                ${selectedProduct.categoryName}
+            </span>
+
+            <h2 class="amazon-product-title">
+                ${selectedProduct.title}
+            </h2>
+
+            <div class="amazon-rating">
+
+                <span class="amazon-stars">
+                    ${selectedProduct.rating}
+                </span>
+
+                <span class="amazon-rating-count">
+                    (${selectedProduct.reviewCount} reviews)
+                </span>
+
+            </div>
+
+            <p class="amazon-product-description">
+                ${selectedProduct.description}
+            </p>
+
+            <strong class="amazon-price">
+                ${selectedProduct.price}
+            </strong>
+
+            <a
+                href="${selectedWhatsappLink}"
+                target="_blank"
+                rel="noopener"
+                class="amazon-whatsapp-button">
+
+                Order Through WhatsApp
+
+            </a>
+
+        </div>
+    `;
+
+    if (amazonProductsGrid) {
+        amazonProductsGrid.appendChild(selectedCard);
+    }
+
+
+    /* =================================================
+       GET ONLY SAME CATEGORY PRODUCTS
+    ================================================= */
+
+    const relatedProducts =
+        products.filter(function (product) {
+
+            return (
+                product.category === selectedProduct.category &&
+                product.id !== selectedProduct.id
+            );
+
+        });
+
+
+    /* =================================================
+       SHOW RELATED PRODUCTS
+    ================================================= */
+
+    relatedProducts.forEach(function (product) {
+
+        const productPageLink =
+            "product-details.html?product=" +
+            encodeURIComponent(product.id);
+
+        const whatsappMessage =
+            "Hello Futuriture, I am interested in " +
+            product.title +
+            ". Please share more details.";
+
+        const whatsappLink =
+            "https://wa.me/919876543210?text=" +
+            encodeURIComponent(whatsappMessage);
+
+
+        const card =
+            document.createElement("article");
+
+        card.className =
+            "amazon-product-card";
+
+        card.innerHTML = `
+
+            <a
+                href="${productPageLink}"
+                class="amazon-product-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.title}"
+                    loading="lazy">
+
+            </a>
+
+            <div class="amazon-product-body">
+
+                <span class="amazon-category">
+                    ${product.categoryName}
+                </span>
+
+                <a
+                    href="${productPageLink}"
+                    class="amazon-product-title">
+
+                    ${product.title}
+
+                </a>
+
+                <div class="amazon-rating">
+
+                    <span class="amazon-stars">
+                        ${product.rating}
+                    </span>
+
+                    <span class="amazon-rating-count">
+                        (${product.reviewCount})
+                    </span>
+
+                </div>
+
+                <p class="amazon-product-description">
+                    ${product.description}
+                </p>
+
+                <strong class="amazon-price">
+                    ${product.price}
+                </strong>
+
+                <div class="amazon-card-actions">
+
+                    <a
+                        href="${productPageLink}"
+                        class="amazon-view-button">
+
+                        View Product
+
+                    </a>
+
+                    <a
+                        href="${whatsappLink}"
+                        target="_blank"
+                        rel="noopener"
+                        class="amazon-whatsapp-button">
+
+                        WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+        `;
+
+        if (amazonProductsGrid) {
+            amazonProductsGrid.appendChild(card);
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   PRODUCT NOT FOUND
+===================================================== */
+
+else {
+
+    if (amazonProductsSection) {
+        amazonProductsSection.style.display = "none";
+    }
+
+    if (productNotFound) {
+        productNotFound.style.display = "block";
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
